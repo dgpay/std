@@ -1,0 +1,42 @@
+Kamus
+  Const Nmax : integer = 7
+  Type stack   :  < info : array [0...NMax-1] of integer 
+                    top : integer >
+          S    : stack
+
+
+Procedure CreateStack( input/output S : stack )
+  Kamus
+  Algoritma
+          S.top ← -1
+
+
+Function isEmptyStack( S : stack ) → boolean
+        → S.top = -1
+
+
+Procedure PUSH(input/output S:Stack, input X:integer )
+{ IS. terdefinisi suatu stack S, dan suatu nilai X
+  FS. X menjadi elemen paling atas atau top dari stack. dan tampilkan ‘stack penuh’
+	  apabila stack ternyata penuh }
+  Kamus
+  Algoritma
+    if S.top = NMax then
+         Output(‘stack penuh’) 
+    else
+               S.top ← S.top + 1
+               S.info[s.top] ← X 
+    {end if}
+
+Procedure POP(input/output S:Stack, output X:integer)
+{IS. terdefinisi suatu stack S
+ FS. Elemen top dari stack di copy-kan ke X, dan nilai top di-update. dan tampilkan
+     ‘stack kosong’ apabila stack kosong}
+  Kamus
+  Algoritma
+    if S.top = -1 then
+        Output(‘stack kosong’) 
+    else
+        X ← S.info[S.top] 
+        S.top ← S.top – 1 
+    {end if}
