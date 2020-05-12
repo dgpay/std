@@ -1,0 +1,11 @@
+Kamus 
+  constant idxMax : integer = 100 
+  type queue : < info : array [0...idxMax-1] of integer 
+                head,tail : integer > 
+  Q : queue
+
+Procedure CreateQueue( Q : queue ) 
+  Kamus 
+  Algoritma 
+    Q.head ← -1 Q.tail ← -1
+

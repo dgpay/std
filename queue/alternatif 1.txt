@@ -1,0 +1,50 @@
+Function IsEmptyAlt1( Q : Queue ) → boolean 
+  Kamus 
+  Algoritma 
+    → ( Q.head = -1 and Q.tail = -1 )
+
+
+
+Function IsFullAlt1( Q : Queue ) → boolean 
+  Kamus 
+  Algoritma 
+    → (Q.head = 0 and Q.tail = NMax-1 )
+
+
+
+Procedure EnQueueAlt1( input/output Q:Queue, input X:integer )
+{ IS. Queue mungkin kosong atau penuh, dan P berisi data 
+  FS. X di-enqueue kedalam Queue dengan Alternative 1, tampilkan penuh apabila queue penuh } 
+  Kamus 
+  Algoritma 
+      if (Q.head = 0 and Q.tail = NMax-1 ) then       // queue penuh 
+          output('penuh') 
+      else 
+          if ( Q.head = -1 and Q.tail = -1 ) then 
+              Q.head ← Q.head + 1                     // queue kosong, head nambah 1 
+          {end if} 
+          Q.tail ← Q.tail + 1                         // queue kosong dan tidak kosong, tail nambah 1 
+          Q.info [Q.tail] ← X                         // data di tambahkan 
+      {end if}
+
+
+
+Procedure DeQueueAlt1( input/output Q: queue) 
+{ IS. Queue mungkin kosong atau penuh 
+  FS. Queue di-dequeue dengan Alternative 1 } 
+  Kamus 
+        i : integer 
+  Algoritma 
+      if ( Q.head = -1 and Q.tail = -1 ) then       // kondisi kosong 
+          output('Stack kosong') 
+      else                                          // tidak kosong 
+           i ← 0                                    // yang ngantri dimajukan satu langkah kedepan 
+           while ( i < Q.Tail ) do 
+               Q.info[i] ← Q[i+1] 
+               i++ 
+           {end while} 
+           Q.tail ← Q.tail - 1                      // update tailnya, yaitu PASTI berkurang 1 
+           if ( Q.Tail = -1 ) then 
+              Q.Head -1 
+           {end if} 
+      {end if}
